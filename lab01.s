@@ -11,7 +11,7 @@
 matric: # Words ending with ':' are **labels**
         # The common convention is to write labels starting from the leftmost column.
         # Try to keep label names short
-        .word 30  # This directive reserves enough space for a word in memory
+        .word 5268  # This directive reserves enough space for a word in memory
                   #  and initializes it with the specific value.
 matricplus1:
         .word 0   
@@ -22,7 +22,7 @@ var1:
 array:
         .word 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 # Array of 10 words
                   # A comma-separated list of numbers can be used after .word
-                  # and similar directives. 
+                  #> and similar directives. 
                   # See the memory tab in Ripes to see how they are stored
 
 var2:
@@ -55,7 +55,7 @@ prog:   # Labels in code are used for control flow: if/then/else, loops, etc.
         #  test.
         # Labels do not take up space in memory. They are only used by the assembler
 
-        li         s0, 100         # Get value 100 into register s0. li - load immediate
+        lw         s0, 0(a0)       #load to s0 the value of address(label matric)
         
         lw         s1, 0(a1)       # s1 gets the value of var1. a1 has the address of var1
         add        s1, s1,   s0    # s1 = var1 + s0
